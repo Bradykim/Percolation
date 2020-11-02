@@ -25,6 +25,7 @@ public class PercolationUF implements IPercolate
         myGrid[row][col]= true;
         myOpenCount++;
         int single = row*myGrid.length+col;
+
         if(row ==0)
         {
             myFinder.union(VTOP,single);
@@ -33,31 +34,34 @@ public class PercolationUF implements IPercolate
         {
             myFinder.union(single,VBOTTOM);
         }
-
-        if(inBounds(row-1,col) && isOpen(row-1,col))
+        if(isOpen(row,col))
         {
-            int singles = (row-1)*myGrid.length+col;
+            if(inBounds(row-1,col) && isOpen(row-1,col))
+            {
+                int singles = (row-1)*myGrid.length+col;
 
-            myFinder.union(single,singles);
-        }
-        if(inBounds(row+1,col) && isOpen(row+1,col))
-        {
-            int singles = (row+1)*myGrid.length+col;
+                myFinder.union(single,singles);
+            }
+            if(inBounds(row+1,col) && isOpen(row+1,col))
+            {
+                int singles = (row+1)*myGrid.length+col;
 
-            myFinder.union(single,singles);
-        }
-        if(inBounds(row,col-1) && isOpen(row,col-1))
-        {
-            int singles = row*myGrid.length+col-1;
+                myFinder.union(single,singles);
+            }
+            if(inBounds(row,col-1) && isOpen(row,col-1))
+            {
+                int singles = row*myGrid.length+col-1;
 
-            myFinder.union(single,singles);
-        }
-        if(inBounds(row,col+1) && isOpen(row,col+1))
-        {
-            int singles = row*myGrid.length+col+1;
+                myFinder.union(single,singles);
+            }
+            if(inBounds(row,col+1) && isOpen(row,col+1))
+            {
+                int singles = row*myGrid.length+col+1;
 
-            myFinder.union(single,singles);
+                myFinder.union(single,singles);
+            }
         }
+
     }
 
 
