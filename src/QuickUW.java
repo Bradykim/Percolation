@@ -20,7 +20,7 @@ public class QuickUW implements IUnionFind {
 	    		this(10);
 	    }
 	    
-	    public void initialize(int n) {
+	    public IUnionFind initialize(int n) {
 		    	count = n;
 		    	parent = new int[n];
 		    	size = new int[n];
@@ -28,7 +28,8 @@ public class QuickUW implements IUnionFind {
 		    		parent[i] = i;
 		    		size[i] = 1;
 		    	}
-	    }
+            return null;
+        }
 
 	    /**
 	     * Returns the number of components.

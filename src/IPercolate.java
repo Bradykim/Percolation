@@ -15,9 +15,9 @@
 public interface IPercolate {
 
 	// Possible states for a grid cell are BLOCKED, OPEN, and FULL
-	public static final int BLOCKED = 1;
-	public static final int OPEN = 2;
-	public static final int FULL = 4;
+	public final int BLOCKED = 1;
+	public final int OPEN = 2;
+	public final int FULL = 4;
 
 	/**
 	 * Open site (row, col) if it is not already open. By convention, (0, 0)

@@ -52,7 +52,7 @@ public class QuickUWPC implements IUnionFind {
     		this(10);
     }
     
-    public void initialize(int n) {
+    public IUnionFind initialize(int n) {
     		count = n;
         parent = new int[n];
         size = new int[n];
@@ -60,6 +60,7 @@ public class QuickUWPC implements IUnionFind {
             parent[i] = i;
             size[i] = 1;
         }
+        return null;
     }
 
     /**

@@ -32,13 +32,14 @@ public class QuickFind implements IUnionFind {
 	}
 
 	// instantiate N isolated components 0 through N-1
-	public void initialize(int n) {
+	public IUnionFind initialize(int n) {
 		myComponents = n;
 		myID = new int[n];
 		for (int i = 0; i < n; i++) {
 			myID[i] = i;
 		}
-	}
+        return null;
+    }
 
 	// return number of connected components
 	public int components() {

@@ -11,8 +11,9 @@ public interface IUnionFind {
 
 	/**
 	 * Instantiate N isolated components in [0,N-1]
+	 * @return
 	 */
-	public void initialize(int n);
+	public IUnionFind initialize(int n);
 
 	/**
 	 * Returns number of components (disjoint sets)
