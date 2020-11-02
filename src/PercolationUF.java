@@ -37,25 +37,25 @@ public class PercolationUF implements IPercolate
         if(inBounds(row-1,col) && isOpen(row-1,col))
         {
             int singles = (row-1)*myGrid.length+col;
-            myGrid[row-1][col] = true;
+
             myFinder.union(single,singles);
         }
         if(inBounds(row+1,col) && isOpen(row+1,col))
         {
             int singles = (row+1)*myGrid.length+col;
-            myGrid[row+1][col] =true;
+
             myFinder.union(single,singles);
         }
         if(inBounds(row,col-1) && isOpen(row,col-1))
         {
             int singles = row*myGrid.length+col-1;
-            myGrid[row][col-1] = true;
+
             myFinder.union(single,singles);
         }
         if(inBounds(row,col+1) && isOpen(row,col+1))
         {
             int singles = row*myGrid.length+col+1;
-            myGrid[row][col+1] =true;
+
             myFinder.union(single,singles);
         }
     }
