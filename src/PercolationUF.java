@@ -34,7 +34,7 @@ public class PercolationUF implements IPercolate
         {
             myFinder.union(single,VBOTTOM);
         }
-        if(isOpen(row,col))
+        if(isOpen(row,col)&& !isFull(col,row))
         {
             if(inBounds(row-1,col) && isOpen(row-1,col))
             {
