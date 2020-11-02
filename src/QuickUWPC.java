@@ -51,7 +51,7 @@ public class QuickUWPC implements IUnionFind {
     public QuickUWPC() {
     		this(10);
     }
-    @Override
+
     public IUnionFind initialize(int n) {
     		count = n;
         parent = new int[n];
