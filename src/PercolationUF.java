@@ -22,46 +22,45 @@ public class PercolationUF implements IPercolate
         {
             throw new IndexOutOfBoundsException(String.format("(%d,%d",row,col));
         }
+        if(!isOpen(row,col)){
+            myOpenCount++;
+        }
         myGrid[row][col]= true;
-        myOpenCount++;
         int single = row*myGrid.length+col;
 
         if(row ==0)
         {
             myFinder.union(VTOP,single);
         }
-        if(row == myGrid.length-1)
+        else if(row == myGrid.length-1)
         {
             myFinder.union(single,VBOTTOM);
         }
-        if(isOpen(row,col)&& !isFull(col,row))
+
+        else if(inBounds(row-1,col) && isOpen(row-1,col))
         {
-            if(inBounds(row-1,col) && isOpen(row-1,col))
-            {
-                int singles = (row-1)*myGrid.length+col;
+            int singles = (row-1)*myGrid.length+col;
 
-                myFinder.union(single,singles);
-            }
-            if(inBounds(row+1,col) && isOpen(row+1,col))
-            {
-                int singles = (row+1)*myGrid.length+col;
-
-                myFinder.union(single,singles);
-            }
-            if(inBounds(row,col-1) && isOpen(row,col-1))
-            {
-                int singles = row*myGrid.length+col-1;
-
-                myFinder.union(single,singles);
-            }
-            if(inBounds(row,col+1) && isOpen(row,col+1))
-            {
-                int singles = row*myGrid.length+col+1;
-
-                myFinder.union(single,singles);
-            }
+            myFinder.union(single,singles);
         }
+        else if(inBounds(row+1,col) && isOpen(row+1,col))
+        {
+            int singles = (row+1)*myGrid.length+col;
 
+            myFinder.union(single,singles);
+        }
+        else if(inBounds(row,col-1) && isOpen(row,col-1))
+        {
+            int singles = row*myGrid.length+col-1;
+
+            myFinder.union(single,singles);
+        }
+        else if(inBounds(row,col+1) && isOpen(row,col+1))
+        {
+            int singles = row*myGrid.length+col+1;
+
+            myFinder.union(single,singles);
+        }
     }
 
 
